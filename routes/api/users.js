@@ -15,4 +15,24 @@ router.get('/', (req, res) => {
       .then(users => res.json(users))
 });
 
+// @route POST api/users
+// @desc Create A Post
+// @access Private
+
+router.post('/', (req, res) => {
+  let newUser = new User({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
+  });
+
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(newUser.password, salt, function(err, hash) {
+      newUser.password = hash;
+      newUser.save().then(user => res.json(user));
+    });
+  });
+
+});
+
 module.exports =  router;
