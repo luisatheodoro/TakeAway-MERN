@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Col, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Container, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
 
 class SignUp extends Component {
@@ -37,6 +37,7 @@ class SignUp extends Component {
                 />
               </FormGroup>
             </Col>
+            <Button color="dark" style={{marginTop: '2rem'}} block>Sign Up</Button>
           </Form>
         </Container>
     );
