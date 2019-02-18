@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {shallow} from 'enzyme';
 import App from '../App';
+import SignUp from '../SignUp';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+
+let wrapped;
+
+beforeEach(() => {
+  wrapped = shallow(<App/>);
+});
+
+it('has an instance of SignUp', () => {
+  expect(wrapped.find(SignUp).length).toEqual(1);
 });
